@@ -2,7 +2,6 @@
 
 // Get the command line arguments
 
-
 const getArguments = function () {
   const args = process.argv.slice(2);
   // Edge case: We need at least 2 arguments
@@ -13,43 +12,50 @@ const getArguments = function () {
   }
 
   return args;
-}
+};
 
 // define arguments and function
 
 // we need an accumulator (variable)
 
+const allInt = function (numbers) {
+  const ouput = [];
+  for (let nb of numbers) {
+    if (Number.isInteger(num)) {
+      output.push(nb);
+    }
+  }
 
+  return output;
+};
 
-const sum = function(numbers) {
-  
+const sum = function (numbers) {
   let total = 0;
-  
+
   // Loop through the numbers
   for (let nb of numbers) {
     const num = Number(nb);
-    
-    // Edge case: If any argument is not a whole number, skip it (remainder?)
-    if (Number.isInteger(num)) {
-      total += num;
-    }
-    
+
+    // // Edge case: If any argument is not a whole number, skip it (remainder?)
+    // if (Number.isInteger(num)) {
+    //   total += num;
+    // }
+
     // Edge case: If any argument is not a number, output an error message
     if (isNaN(num)) {
-    console.log('Please do add only numbers');
-    process.exit();
-  }
-  
-  // if(num % 1 === 0) {
+      console.log('Please do add only numbers');
+      process.exit();
+    }
+
+    // if(num % 1 === 0) {
     // }
-    
+
     console.log('nb:', nb, 'total:', total, 'type', typeof num);
   }
-  
+
   return total;
-  
-}
+};
 
-const result = sum(getArguments());
+const result = sum(allInt(getArguments()));
 
-console.log("Total:", result);
+console.log('Total:', result);
